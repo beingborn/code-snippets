@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP 스크롤 시 영역 확대 | 모바일 분기별 수치변경</title>
+</head>
+<body>
+    <div class="large-img-container">
+        <img class="large-img" src="" alt=""/>
+    </div>
+    <script>
+       $(function () {
+                let mm = gsap.matchMedia(),
+                    breakPoint = 768;
+
+                mm.add(
+                    {
+                        isDesktop: `(min-width: ${breakPoint}px)`,
+                        isMobile: `(max-width: ${breakPoint - 1}px)`,
+                    },
+                    (context) => {
+                        let { isDesktop, isMobile } = context.conditions;
+
+                        gsap.fromTo(
+                            '.large-img-container',
+                            {
+                                scale: isDesktop ? 1.4 : 1.2,
+                                y: isDesktop ? 100 : 40,
+                            },
+                            {
+                                scale: 1,
+                                y: 0,
+                                scrollTrigger: {
+                                    trigger: '.large-img',
+                                    start: 'top center',
+                                    end: 'bottom center',
+                                    scrub: true,
+                                },
+                            },
+                        );
+                    },
+                );
+            });
+    </script>
+</body>
+</html>
