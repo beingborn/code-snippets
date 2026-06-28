@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .tab-btn.is-active {
+                border: 2px solid black;
+            }
+
+            .vertical-style .tab-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .horizontal-style .tab-btns {
+                display: flex;
+                gap: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="tab-container" data-tab="horizontal">
+            <div class="tab-btns">
+                <button class="tab-btn" data-panel="tab-1">탭 1</button>
+                <button class="tab-btn" data-panel="tab-2">탭 2</button>
+                <button class="tab-btn" data-panel="tab-3">탭 3</button>
+            </div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+        </div>
+
+        <div id="vertical" data-tab="horizontal">
+            <div class="tab-btns">
+                <button class="tab-btn" data-panel="tab-1">탭 1</button>
+                <button class="tab-btn" data-panel="tab-2">탭 2</button>
+                <button class="tab-btn" data-panel="tab-3">탭 3</button>
+            </div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+        </div>
+
+        <div id="horizontal" data-tab="horizontal">
+            <div class="tab-btns">
+                <button class="tab-btn" data-panel="tab-1">탭 1</button>
+                <button class="tab-btn" data-panel="tab-2">탭 2</button>
+                <button class="tab-btn" data-panel="tab-3">탭 3</button>
+            </div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+            <div class="tab-panel"></div>
+        </div>
+    </body>
+
+    <script>
+        class Tab {
+            constructor(containerId) {
+                this.container = document.getElementById(containerId);
+
+                this.tabs = [];
+                this.activeTab = [];
+                this.init();
+            }
+
+            init() {
+                this.parseTabsData();
+                this.bindEvents();
+            }
+
+            parseTabsData() {
+                const tabBtns = this.container.querySelectorAll(".tab-btn");
+                const tabPanels = this.container.querySelectorAll(".tab-panel");
+                tabBtns.forEach((tab, idx) => {
+                    this.tabs.push({
+                        button: tab,
+                        panel: tab.getAttribute("data-panel"),
+                    });
+                });
+            }
+
+            bindEvents() {
+                this.tabs.forEach((tab) => {
+                    tab.button.addEventListener("click", (e) =>
+                        this.setActiveTab(e),
+                    );
+                });
+            }
+
+            setActiveTab(e) {
+                const activeTarget = e.currentTarget.getAttribute("data-panel");
+
+                this.activeTab.push(activeTarget);
+
+                this.activeTab.forEach((activeTab) => {
+                    this.tabs.forEach((tab) => {
+                        if (
+                            tab.button.getAttribute("data-panel") == activeTab
+                        ) {
+                            tab.button.classList.add("is-active");
+                        } else {
+                            tab.button.classList.remove("is-active");
+                        }
+                    });
+                });
+            }
+        }
+
+        class VerticalTab extends Tab {
+            init() {
+                super.init(); // 부모 init 수행
+                this.setVerticalLayout();
+            }
+
+            setVerticalLayout() {
+                this.container.classList.add("vertical-style");
+            }
+        }
+
+        class HorizontalTab extends Tab {
+            init() {
+                super.init();
+                this.setHorizontalLayout();
+            }
+
+            setHorizontalLayout() {
+                this.container.classList.add("horizontal-style");
+            }
+        }
+
+        const Default = new Tab("tab-container");
+        const Vertical = new VerticalTab("vertical");
+        const Horizontal = new HorizontalTab("horizontal");
+    </script>
+</html>
