@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>화면크기변경</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../guide_style/guide.css">
-    <link rel="stylesheet" href="../plugin/prism.css">
-    <script src="../guide.js"></script>
-    <script src="../plugin/prism.js"></script>
 </head>
 <style>
     /* reset */
@@ -43,42 +39,8 @@
             <span>안녕하세요 바디텍스트입니다.</span>
         </div>
         <!-- 코드 -->
-        <div class="code-box-group">
-            <details class="html-code-box language-html code-box">
-                <summary>HTML</summary>
-                <div class="code-wrap">
-                    <code class="html-content code">
-                    </code>
-                    <button class="copy-btn">copy</button>
-                </div>
-            </details>
-            <details class="css-code-box language-css code-box">
-                <summary>CSS</summary>
-                <div class="code-wrap">
-                    <code class="css-content code">
-                    </code>
-                    <button class="copy-btn">copy</button>
-                </div>
-            </details>
-            <details class="script-code-box language-javascript code-box">
-                <summary>JS</summary>
-                <div class="code-wrap">
-                    <code class="js-content code">
-                    </code>
-                    <button class="copy-btn">copy</button>
-                </div>
-            </details>
-            <details class="memo-code-box code-box">
-                <summary>메모내역</summary>
-                <div class="code-wrap memo">
-                    <div class="memo-wrap">
-                        <p>화면크기 변경은 어렵군.. 뭐 어쩔수 없는거 아니겠나 이렇게 된거</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-</body>
-<script class="script">
+        </body>
+<script>
     // 줌이 140인 상태에서 + 클릭 시 
     $('.size-select > a').on('click', function(){
         $(this).parent().toggleClass('is-active');

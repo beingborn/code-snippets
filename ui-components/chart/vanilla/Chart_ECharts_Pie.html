@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>템플릿 파일</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../guide_style/guide.css">
-    <link rel="stylesheet" href="../plugin/prism.css">
-    <script src="../guide.js"></script>
-    <script src="../plugin/prism.js"></script>
     <!-- e-chart inject -->
     <script src="../plugin/echart.js/echarts.min.js"></script>
 </head>
@@ -24,49 +20,12 @@
         height: 400px;
     }
 </style>
-<body class="guide-inner">
+<body>
     <div class="echart-box">
         <div class="echart" id="monthCondition"></div>
     </div>
-    <div class="code-box-group">
-        <details class="html-code-box language-html code-box">
-            <summary>HTML</summary>
-            <div class="code-wrap">
-                <code class="html-content code">
-                </code>
-                <button class="copy-btn">copy</button>
-            </div>
-        </details>
-        <details class="css-code-box language-css code-box">
-            <summary>CSS</summary>
-            <div class="code-wrap">
-                <code class="css-content code">
-                </code>
-                <button class="copy-btn">copy</button>
-            </div>
-        </details>
-        <details class="script-code-box language-javascript code-box">
-            <summary>JS</summary>
-            <div class="code-wrap">
-                <code class="js-content code">
-                </code>
-                <button class="copy-btn">copy</button>
-            </div>
-        </details>
-        <details class="memo-code-box code-box">
-            <summary>메모내역</summary>
-            <div class="code-wrap memo">
-                <div class="memo-wrap">
-                    <p>
-                        E차트 구멍 radius 값이 주로 사용되는 것 같고, 
-                        더미 데이터에 itemStyle까지는 개발쪽에 넘겨줄 수 있을 것 같다.
-                    </p>
-                </div>
-            </div>
-        </details>
-    </div>
-</body>
-<script class="script">
+    </body>
+<script>
     /* 월별 통계 */
     let monthlyChart = echarts.init(document.getElementById('monthCondition'));
     let monthlyOption = { 
