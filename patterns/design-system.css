@@ -1,0 +1,33 @@
+:root {
+  /* Content-width */
+  --content-padding-x : 20px;
+  --content-wrap-size : calc(1440px + (var(--content-padding-x) * 2));
+
+  /* Grayscale */
+  --white: #FFF;
+	--bg-color: #EEE;
+	--ds-color: #EEE;
+	--bd-color: #AAA;
+	--ph-color: #666;
+	--pri-txt-color: #000;
+	--sub-txt-color: #333;
+
+  /* Color */
+	--pri: #00ADB2;
+	--skyblue: #218CEF;
+	--blue: #4C85BA;
+	--lightblue : #F7F9FC;
+	--deepblue: #003675;
+	--green: #56CA00;
+	--red: #EA292E;
+
+  /* Font */
+	--font-lv0: 42px;
+	--font-lv1: 34px;
+	--font-lv2: 32px;
+	--font-lv3: 28px;
+	--font-lv4: 22px;
+	--font-lv5: 20px;
+	--font-lv6: 18px;
+	--font-lv7: 16px;
+}
