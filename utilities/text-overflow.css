@@ -1,0 +1,5 @@
+.bl-vertical-title {
+	display: inline-block; white-space: nowrap; 
+	max-width: 99%; text-overflow: ellipsis; 
+	overflow: hidden; vertical-align: middle;
+}
